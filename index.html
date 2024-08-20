@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Father's Letter</title>
+    <style>
+        /* Основные стили */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            /*background-color: #f0f0f0;*/
+            background-image: url("./paperbackground.jpeg");
+            background-position: center; /* Центрирует изображение */
+            /*background-repeat: no-repeat;*/
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            width: 100%;
+            height: 100%;
+        }
+
+        .cell {
+            /*border: 1px solid #ccc;*/
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-sizing: border-box; /* Убедитесь, что границы не влияют на размеры ячеек */
+        }
+
+        .grille {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            transition: transform 0.5s ease;
+
+        }
+
+        .square {
+            /*background-color: grey;*/
+            background-image: url('./cardboard.jpeg');
+            background-size: cover;
+
+        }
+
+        .hole {
+            background-image: none;
+            background-color: transparent;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            border: none;
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>Father's Letter</h1>
+<div class="container">
+    <!-- Сетка с ячейками -->
+    <div class="grid">
+        <!-- Ячейки 6x6 -->
+    </div>
+
+    <!-- Сетка с отверстиями -->
+    <div class="grille">
+        <!-- Ячейки для отверстий -->
+    </div>
+</div>
+<div class="buttons">
+    <button id="shuffleButton">Shuffle</button>
+    <button id="rotateButton">Rotate</button>
+    <button id="toggleButton">Toggle</button>
+</div>
+
+<script src="./javascript.js"></script>
+</body>
+</html>
+
+
+<!--
+Когдаябылребенком,отецписалмнеписьма
+Однаждыонприслалоченьнеобычноеписьмо
+Егоневозможнобылопрочитатьбезключа.
+
+Яхотелбыподелитьсястобойчем-товажным
+Привет!Яхочуподелитьсястобойсекретом
+Вырежирешеткуизбумагиииграйсдрузьями
+Тысможешьотправитьсекретноесообщение
+Когдаябылмаленькимпапаписалмнеписьма
+Тыможешьраспечататьпонравившийсяключ
+Тыможешьвырезатьпонравившийсярисунок
+Никтонесможетпрочитатьтвоесообщение.
+Этоттекстневозможнопрочитатьбезключа
+Еслитыхочешьэтопрочестьтебенуженключ
+Тебепонадобитсяключчтобыпрочитатьэто
+-->

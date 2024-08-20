@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Father's Letter</title>
+  <style>
+    /* Основные стили */
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Shadows Into Light', cursive;
+      background-image: url('images/notebook-background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      transform: rotate(-5deg);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 10px;
+      border: 2px dashed #8B4513; /* Рамка для сетки */
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      width: 100%;
+      height: 100%;
+    }
+
+    .cell {
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-sizing: border-box;
+    }
+
+    .grille {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      background-image: url('images/cardboard-texture.png');
+      background-size: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      border: 2px solid #8B4513;
+      border-radius: 5px;
+      z-index: 10;
+      cursor: move;
+    }
+
+    .square {
+      background-color: rgba(139, 69, 19, 0.7);
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hole {
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #f0e68c;
+      border: 2px solid #8B4513;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      font-family: 'Shadows Into Light', cursive;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #e0c97a;
+    }
+
+    .grid-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+<h1>Father's Letter</h1>
+<div class="grid-container">
+  <div class="container" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div class="grid">
+      <div class="cell">A</div>
+      <div class="cell">B</div>
+      <div class="cell">C</div>
+      <div class="cell">D</div>
+      <div class="cell">E</div>
+      <div class="cell">F</div>
+      <div class="cell">G</div>
+      <div class="cell">H</div>
+      <div class="cell">I</div>
+      <div class="cell">J</div>
+      <div class="cell">K</div>
+      <div class="cell">L</div>
+      <div class="cell">M</div>
+      <div class="cell">N</div>
+      <div class="cell">O</div>
+      <div class="cell">P</div>
+      <div class="cell">Q</div>
+      <div class="cell">R</div>
+      <div class="cell">S</div>
+      <div class="cell">T</div>
+      <div class="cell">U</div>
+      <div class="cell">V</div>
+      <div class="cell">W</div>
+      <div class="cell">X</div>
+      <div class="cell">Y</div>
+      <div class="cell">Z</div>
+      <div class="cell">1</div>
+      <div class="cell">2</div>
+      <div class="cell">3</div>
+      <div class="cell">4</div>
+      <div class="cell">5</div>
+      <div class="cell">6</div>
+    </div>
+  </div>
+  <div class="container" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div class="grid">
+      <!-- Вторая сетка с другими значениями -->
+      <div class="cell">Q</div>
+      <div class="cell">W</div>
+      <div class="cell">E</div>
+      <div class="cell">R</div>
+      <div class="cell">T</div>
+      <div class="cell">Y</div>
+      <div class="cell">U</div>
+      <div class="cell">I</div>
+      <div class="cell">O</div>
+      <div class="cell">P</div>
+      <div class="cell">A</div>
+      <div class="cell">S</div>
+      <div class="cell">D</div>
+      <div class="cell">F</div>
+      <div class="cell">G</div>
+      <div class="cell">H</div>
+      <div class="cell">J</div>
+      <div class="cell">K</div>
+      <div class="cell">L</div>
+      <div class="cell">Z</div>
+      <div class="cell">X</div>
+      <div class="cell">C</div>
+      <div class="cell">V</div>
+      <div class="cell">B</div>
+      <div class="cell">N</div>
+      <div class="cell">M</div>
+      <div class="cell">1</div>
+      <div class="cell">2</div>
+      <div class="cell">3</div>
+      <div class="cell">4</div>
+      <div class="cell">5</div>
+      <div class="cell">6</div>
+    </div>
+  </div>
+</div>
+<div class="grille" draggable="true" ondragstart="drag(event)">
+  <!-- Ячейки для отверстий -->
+</div>
+<div class="buttons">
+  <button id="shuffleButton">Shuffle</button>
+  <button id="rotateButton">Rotate</button>
+  <button id="toggleButton">Toggle</button>
+</div>
+
+<script>
+  // Функция для создания ячеек с отверстиями на основе решетки
+  function createGrille(grid, size = 6) {
+    const grille = document.querySelector('.grille');
+    grille.innerHTML = ''; // Очищаем предыдущие элементы
+
+    grid.forEach((row) => {
+      row.forEach((cell) => {
+        const cellElement = document.createElement('div');
+        cellElement.classList.add('square');
+        if (cell === 1) {
+          cellElement.classList.add('hole');
+        }
+        grille.appendChild(cellElement);
+      });
+    });
+  }
+
+  // Функция для поворота решетки
+  function rotateGrille() {
+    const grille = document.querySelector('.grille');
+    grille.style.transform = `rotate(${rotationAngle}deg)`;
+  }
+
+  // Переменные для хранения состояния
+  let grid = generateGrille(6);
+  let rotationAngle = 0;
+  createGrille(grid);
+
+  // Событие для кнопки Shuffle
+  document.getElementById('shuffleButton').addEventListener('click', () => {
+    grid = generateGrille(6);
+    createGrille(grid);
+  });
+
+  // Событие для кнопки Rotate
+  document.getElementById('rotateButton').addEventListener('click', () => {
+    rotationAngle = (rotationAngle + 90) % 360;
+    rotateGrille();
+  });
+
+  // Событие для кнопки Toggle
+  document.getElementById('toggleButton').addEventListener('click', () => {
+    const grille = document.querySelector('.grille');
+    grille.style.display = grille.style.display === 'none' ? 'grid' : 'none';
+  });
+
+  // Встроенная функция генерации решетки
+  function generateGrille(size = 6) {
+    let holes = Array.from({ length: size }, () => Array(size).fill(0));
+    const grille = Array.from({ length: size }, () => Array(size).fill(0));
+    let howManyHoles = 0;
+
+    const maxAttempts = 300;
+    let attempts = 0;
+
+    while (howManyHoles !== size ** 2 / 4) {
+      if (attempts > maxAttempts) break;
+
+      const row = Math.floor(Math.random() * size);
+      const col = Math.floor(Math.random() * size);
+
+      if (holes[row][col] === 0 && cellIsValid(row, col, grille)) {
+        howManyHoles++;
+        grille[row][col] = 1;
+
+        for (let i = 0; i < 4; i++) {
+          holes[row][col] = 1;
+          holes = rotate90(holes);
+        }
+      }
+
+      attempts++;
+    }
+
+    return howManyHoles === size ** 2 / 4 ? grille : generateGrille(size = 6);
+  }
+
+  // Встроенная функция поворота на 90 градусов
+  function rotate90(matrix) {
+    const size = matrix.length;
+    const rotatedMatrix = Array.from({ length: size }, () => Array(size).fill(0));
+
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < size; j++) {
+        rotatedMatrix[j][size - 1 - i] = matrix[i][j];
+      }
+    }
+
+    return rotatedMatrix;
+  }
+
+  // Встроенная функция проверки валидности ячейки
+  function cellIsValid(row, col, grille) {
+    const size = grille.length;
+
+    const upperNeighbour = row - 1 >= 0 ? grille[row - 1][col] : 0;
+    const bottomNeighbour = row + 1 < size ? grille[row + 1][col] : 0;
+    const rightNeighbour = col + 1 < size ? grille[row][col + 1] : 0;
+    const leftNeighbour = col - 1 >= 0 ? grille[row][col - 1] : 0;
+
+    const cellHasSideNeighbour = upperNeighbour || bottomNeighbour || rightNeighbour || leftNeighbour;
+
+    const upperLeft = (row - 1 >= 0 && col - 1 >= 0) ? grille[row - 1][col - 1] : 0;
+    const upperRight = (row - 1 >= 0 && col + 1 < size) ? grille[row - 1][col + 1] : 0;
+    const bottomLeft = (row + 1 < size && col - 1 >= 0) ? grille[row + 1][col - 1] : 0;
+    const bottomRight = (row + 1 < size && col + 1 < size) ? grille[row + 1][col + 1] : 0;
+
+    return true;
+  }
+
+  // Функции для drag-and-drop
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.className);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    const data = ev.dataTransfer.getData("text");
+    const grille = document.querySelector(`.${data}`);
+    ev.target.appendChild(grille);
+  }
+</script>
+</body>
+</html>
