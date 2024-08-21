@@ -14,8 +14,10 @@
       height: 100vh;
       margin: 0;
       font-family: Arial, sans-serif;
+      /*background-color: #f0f0f0;*/
       background-image: url("images/paperbackground.jpeg");
-      background-position: center;
+      background-position: center; /* Центрирует изображение */
+      /*background-repeat: no-repeat;*/
     }
 
     h1 {
@@ -26,7 +28,6 @@
       position: relative;
       width: 300px;
       height: 300px;
-      margin-bottom: 20px; /* Добавим отступ между контейнерами */
     }
 
     .grid {
@@ -38,12 +39,13 @@
     }
 
     .cell {
+      /*border: 1px solid #ccc;*/
       background-color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 18px;
-      box-sizing: border-box;
+      box-sizing: border-box; /* Убедитесь, что границы не влияют на размеры ячеек */
     }
 
     .grille {
@@ -56,11 +58,14 @@
       grid-template-columns: repeat(6, 1fr);
       grid-template-rows: repeat(6, 1fr);
       transition: transform 0.5s ease;
+
     }
 
     .square {
+      /*background-color: grey;*/
       background-image: url('images/cardboard.jpeg');
       background-size: cover;
+
     }
 
     .hole {
@@ -83,18 +88,9 @@
 </head>
 <body>
 <h1>Father's Letter</h1>
-
 <div class="container">
-  <!-- Первая сетка с ячейками -->
-  <div class="grid grid-1">
-    <!-- Ячейки 6x6 -->
-  </div>
-  <!-- Вторая сетка с ячейками -->
-  <div class="grid grid-2">
-    <!-- Ячейки 6x6 -->
-  </div>
-  <!-- Третья сетка с ячейками -->
-  <div class="grid grid-3">
+  <!-- Сетка с ячейками -->
+  <div class="grid">
     <!-- Ячейки 6x6 -->
   </div>
   <!-- Сетка с отверстиями -->
@@ -102,7 +98,6 @@
     <!-- Ячейки для отверстий -->
   </div>
 </div>
-
 <div class="buttons">
   <button id="shuffleButton">Shuffle</button>
   <button id="rotateButton">Rotate</button>
@@ -110,6 +105,8 @@
 </div>
 
 <script src="./javascript.js"></script>
-
+<script src="./keyboard-controls.js"></script>
 </body>
 </html>
+
+
