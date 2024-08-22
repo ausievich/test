@@ -8,20 +8,60 @@
         /* Основные стили */
         body {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            /*background-color: #f0f0f0;*/
-            background-image: url("images/paperbackground.jpeg");
-            background-position: center; /* Центрирует изображение */
-            /*background-repeat: no-repeat;*/
+            background-image: url("images/paper.jpg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center; /* Центрируем изображение */
         }
 
-        h1 {
-            margin-bottom: 20px;
+        .aligner {
+            max-width: 1100px;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .left, .right {
+            width: 50%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .left {
+            padding: 50px;
+            display: flex;
+            justify-content: center; /* Центрируем по вертикали */
+            align-items: center; /* Центрируем по горизонтали */
+            flex-direction: column;
+        }
+
+        .right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .left h1 {
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+
+        textarea {
+            width: 100%;
+            height: calc(100% - 200px); /* Оставляем место для заголовка */
+            font-size: 18px;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: none;
+            border: none;
+            outline: none;
+            background-color: #f9f9f9;
         }
 
         .container {
@@ -36,16 +76,16 @@
             grid-template-rows: repeat(6, 1fr);
             width: 100%;
             height: 100%;
+            position: relative;
         }
 
         .cell {
-            /*border: 1px solid #ccc;*/
             background-color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            box-sizing: border-box; /* Убедитесь, что границы не влияют на размеры ячеек */
+            box-sizing: border-box;
         }
 
         .grille {
@@ -58,7 +98,6 @@
             grid-template-columns: repeat(6, 1fr);
             grid-template-rows: repeat(6, 1fr);
             transition: transform 0.5s ease;
-
         }
 
         .square {
@@ -73,8 +112,15 @@
             background-color: transparent;
         }
 
+        /*.buttons {*/
+        /*    position: absolute;*/
+        /*    bottom: 100px;*/
+        /*    display: flex;*/
+        /*    gap: 10px;*/
+        /*}*/
+
         .buttons {
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         button {
@@ -87,27 +133,36 @@
     </style>
 </head>
 <body>
-<h1>Father's Letter</h1>
-<div class="container">
-    <!-- Сетка с ячейками -->
-    <div class="grid">
-        <!-- Ячейки 6x6 -->
+
+<div class="aligner">
+    <div class="left">
+        <h1>Папино письмо</h1>
+        <textarea id="textInput">Когда я был ребенком отец писал мне письма.</textarea>
+        <div class="buttons">
+            <button id="shuffleButton">Shuffle</button>
+            <button id="rotateButton">Rotate</button>
+            <button id="toggleButton">Toggle</button>
+        </div>
+
     </div>
 
-    <!-- Сетка с отверстиями -->
-    <div class="grille">
-        <!-- Ячейки для отверстий -->
+    <div class="right">
+        <div class="container">
+            <!-- Сетка с ячейками -->
+            <div class="grid">
+                <!-- Ячейки 6x6 -->
+            </div>
+
+            <!-- Сетка с отверстиями -->
+            <div class="grille">
+                <!-- Ячейки для отверстий -->
+            </div>
+        </div>
+
     </div>
-</div>
-<div class="buttons">
-    <button id="shuffleButton">Shuffle</button>
-    <button id="rotateButton">Rotate</button>
-    <button id="toggleButton">Toggle</button>
 </div>
 
 <script src="./javascript.js"></script>
 <script src="./keyboard-controls.js"></script>
 </body>
 </html>
-
-
