@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Father's Letter</title>
     <style>
+        .grid-container {
+            transition: transform 0.5s ease; /* Плавный переход для контейнера */
+        }
+
         /* Основные стили */
         body {
             display: flex;
@@ -82,20 +86,13 @@
             transition: transform 0.5s ease;
         }
 
-        .grid-0 {
+        .first-grid {
             /* Оставляем центральным элементом */
         }
 
-        .grid-1 {
+        .second-grid {
             position: absolute;
             top: 350px; /* Устанавливаем позицию ниже первого элемента на расстояние чуть больше его высоты */
-            left: 0;
-            width: 100%;
-        }
-
-        .grid-2 {
-            position: absolute;
-            top: 700px; /* Устанавливаем позицию ниже первого элемента на расстояние чуть больше его высоты */
             left: 0;
             width: 100%;
         }
@@ -160,22 +157,29 @@
     <div class="right">
         <div class="container">
             <!-- Первая сетка по центру -->
-            <div class="grid grid-0">
-                <!-- Ячейки 6x6 -->
-            </div>
+                <div class="grid grid-1">
+                    <!-- Ячейки 6x6 -->
+                </div>
 
-            <!-- Вторая сетка, расположенная ниже первой -->
-            <div class="grid grid-1">
-                <!-- Ячейки 6x6 -->
-                <div class="cell">м</div>
+                <!-- Вторая сетка, расположенная ниже первой -->
+                <div class="grid grid-2">
+                    <!-- Ячейки 6x6 -->
+                    <div class="cell">м</div>
+                    <div class="cell">м</div>
+                    <div class="cell">м</div>
+                    <div class="cell">м</div>
+                    <div class="cell">м</div>
+                    <div class="cell">м</div>
+                    <div class="cell">м</div>
+                    <div class="cell">м</div>
+                    <div class="cell">м</div>
+                    <div class="cell">м</div>
+                    <div class="cell">м</div>
+                    <div class="cell">м</div>
+                    <div class="cell">м</div>
 
-            </div>
-            <!-- Вторая сетка, расположенная ниже первой -->
-            <div class="grid grid-2">
-                <!-- Ячейки 6x6 -->
-                <div class="cell">м</div>
+                </div>
 
-            </div>
 
             <!-- Сетка с отверстиями (если нужно) -->
             <div class="grille">
@@ -189,3 +193,4 @@
 <script src="./keyboard-controls.js"></script>
 </body>
 </html>
+

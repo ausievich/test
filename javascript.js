@@ -94,21 +94,21 @@ function rotate90(matrix) {
 
 // Встроенная функция проверки валидности ячейки
 function cellIsValid(row, col, grille) {
-    const size = grille.length;
-
-    const upperNeighbour = row - 1 >= 0 ? grille[row - 1][col] : 0;
-    const bottomNeighbour = row + 1 < size ? grille[row + 1][col] : 0;
-    const rightNeighbour = col + 1 < size ? grille[row][col + 1] : 0;
-    const leftNeighbour = col - 1 >= 0 ? grille[row][col - 1] : 0;
-
-    const cellHasSideNeighbour = upperNeighbour || bottomNeighbour || rightNeighbour || leftNeighbour;
-
-    const upperLeft = (row - 1 >= 0 && col - 1 >= 0) ? grille[row - 1][col - 1] : 0;
-    const upperRight = (row - 1 >= 0 && col + 1 < size) ? grille[row - 1][col + 1] : 0;
-    const bottomLeft = (row + 1 < size && col - 1 >= 0) ? grille[row + 1][col - 1] : 0;
-    const bottomRight = (row + 1 < size && col + 1 < size) ? grille[row + 1][col + 1] : 0;
-
-    const cellHasFourDiagonalNeighbours = upperLeft && upperRight && bottomLeft && bottomRight;
+    // const size = grille.length;
+    //
+    // const upperNeighbour = row - 1 >= 0 ? grille[row - 1][col] : 0;
+    // const bottomNeighbour = row + 1 < size ? grille[row + 1][col] : 0;
+    // const rightNeighbour = col + 1 < size ? grille[row][col + 1] : 0;
+    // const leftNeighbour = col - 1 >= 0 ? grille[row][col - 1] : 0;
+    //
+    // const cellHasSideNeighbour = upperNeighbour || bottomNeighbour || rightNeighbour || leftNeighbour;
+    //
+    // const upperLeft = (row - 1 >= 0 && col - 1 >= 0) ? grille[row - 1][col - 1] : 0;
+    // const upperRight = (row - 1 >= 0 && col + 1 < size) ? grille[row - 1][col + 1] : 0;
+    // const bottomLeft = (row + 1 < size && col - 1 >= 0) ? grille[row + 1][col - 1] : 0;
+    // const bottomRight = (row + 1 < size && col + 1 < size) ? grille[row + 1][col + 1] : 0;
+    //
+    // const cellHasFourDiagonalNeighbours = upperLeft && upperRight && bottomLeft && bottomRight;
 
     return true;
 }
@@ -133,7 +133,7 @@ function fillMatrixWithText(grille) {
         grille = rotate90(grille);
     }
 
-    console.log(matrixWithText)
+    //console.log(matrixWithText)
     return matrixWithText
 }
 
