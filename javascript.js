@@ -4,7 +4,6 @@ let orderMatrix = enumerateField(grilleMatrix);
 
 let rotationAngle = 0;
 createGrilleElement(grilleMatrix);
-//createGrid()
 
 // Функция для создания ячеек с отверстиями на основе решетки
 function createGrilleElement(grilleMatrix, size = 6) {
@@ -29,47 +28,6 @@ function rotateGrilleElement() {
     grille.style.transform = `rotate(${rotationAngle}deg)`;
 }
 
-
-// // Функция для создания блока с зашифрованным текстом
-// function createGrid() {
-//     const text = fillMatrixWithText(grilleMatrix)
-//
-//     const gridElement = document.querySelector('.grid');
-//     gridElement.innerHTML = ''; // Очищаем предыдущие элементы
-//
-//     text.forEach((row) => {
-//         row.forEach((cell) => {
-//             const letterElement = document.createElement('div');
-//             letterElement.classList.add('cell');
-//             letterElement.innerHTML = cell;
-//             gridElement.appendChild(letterElement);
-//         });
-//     });
-// }
-//
-// function fillMatrixWithText(grille) {
-//     //const textString = "Когдаябылребенком,отецписалмнеписьма";
-//     const textString = "WhenIwasyoungmyfatherwrotemeletters.";
-//     const size = grille.length
-//
-//     let cursor = 0;
-//     const matrixWithText = Array.from({ length: size }, () => Array(size).fill(0));
-//
-//     for (let rotations = 0; rotations < 4; rotations++) {
-//         for (let i = 0; i < size; i++) {
-//             for (let j = 0; j < size; j++) {
-//                 if (grille[i][j] !== 0) {
-//                     matrixWithText[i][j] = textString[cursor]
-//                     cursor++;
-//                 }
-//             }
-//         }
-//
-//         grille = rotate90(grille);
-//     }
-//
-//     return matrixWithText;
-// }
 
 // Встроенная функция генерации решетки
 function generateGrilleMatrix(size = 6) {
@@ -167,7 +125,8 @@ function cellIsValid(row, col, grille) {
 document.getElementById('shuffleButton').addEventListener('click', () => {
     grilleMatrix = generateGrilleMatrix(6);
     createGrilleElement(grilleMatrix);
-    createGrid()
+    orderMatrix = enumerateField(grilleMatrix);
+
 });
 
 // Событие для кнопки Rotate
@@ -195,6 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function createEmptyGrid() {
         const grid = document.createElement('div');
         grid.classList.add('grid', `grid-${gridCount}`);
+        grid.style.top = (350 * gridCount) + 'px';
+        grid.style.position = 'absolute';
         container.appendChild(grid);
 
         // Добавляем пустые ячейки по матрице порядка
@@ -213,11 +174,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обработчик события ввода
     textInput.addEventListener('input', () => {
-        const text = textInput.value;
+        const text = textInput.value.replace(/\s+/g, '');
 
-        if (text.length % 9 === 0) {
+        if (text.length > 1 && text.length % 9 === 1) {
             rotationAngle = (rotationAngle + 90);
             rotateGrilleElement();
+
         }
 
         if (text.length === 0) {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Father's Letter</title>
+    <title>Secret Letter</title>
     <style>
         /* Основные стили */
         body {
@@ -83,23 +83,23 @@
             transition: transform 0.5s ease;
         }
 
-        .grid-0 {
-            /* Оставляем центральным элементом */
-        }
+        /*.grid-0 {*/
+        /*    !* Оставляем центральным элементом *!*/
+        /*}*/
 
-        .grid-1 {
-            position: absolute;
-            top: 350px; /* Устанавливаем позицию ниже первого элемента на расстояние чуть больше его высоты */
-            left: 0;
-            width: 100%;
-        }
+        /*.grid-1 {*/
+        /*    position: absolute;*/
+        /*    top: 350px; !* Устанавливаем позицию ниже первого элемента на расстояние чуть больше его высоты *!*/
+        /*    left: 0;*/
+        /*    width: 100%;*/
+        /*}*/
 
-        .grid-2 {
-            position: absolute;
-            top: 700px; /* Устанавливаем позицию ниже первого элемента на расстояние чуть больше его высоты */
-            left: 0;
-            width: 100%;
-        }
+        /*.grid-2 {*/
+        /*    position: absolute;*/
+        /*    top: 700px; !* Устанавливаем позицию ниже первого элемента на расстояние чуть больше его высоты *!*/
+        /*    left: 0;*/
+        /*    width: 100%;*/
+        /*}*/
 
         .cell {
             background-color: #fff;
@@ -150,12 +150,14 @@
 
 <div class="aligner">
     <div class="left">
-        <h1>Father's letter</h1>
+        <h1>Secret letter</h1>
         <textarea id="textInput">Привет</textarea>
         <div class="buttons">
             <button id="shuffleButton">Shuffle</button>
             <button id="rotateButton">Rotate</button>
             <button id="toggleButton">Toggle</button>
+            <button id="shareButton">Share</button>
+
         </div>
     </div>
 
