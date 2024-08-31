@@ -15,7 +15,6 @@ function createGrille(grid, size = 6) {
     });
 }
 
-
 // Функция для поворота решетки
 function rotateGrille() {
     const grille = document.querySelector('.grille');
@@ -114,7 +113,8 @@ function cellIsValid(row, col, grille) {
 }
 
 function fillMatrixWithText(grille) {
-    const textString = "Когдаябылребенком,отецписалмнеписьма";
+    //const textString = "Когдаябылребенком,отецписалмнеписьма";
+    const textString = "WhenIwasyoungmyfatherwrotemeletters.";
     const size = grille.length
 
     let cursor = 0;
@@ -133,7 +133,6 @@ function fillMatrixWithText(grille) {
         grille = rotate90(grille);
     }
 
-    //console.log(matrixWithText)
     return matrixWithText
 }
 

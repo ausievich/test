@@ -15,7 +15,7 @@
             background-image: url("images/paper.jpg");
             background-size: contain;
             background-repeat: no-repeat;
-            background-position: center; /* Центрируем изображение */
+            background-position: center;
         }
 
         .aligner {
@@ -35,8 +35,8 @@
         .left {
             padding: 50px;
             display: flex;
-            justify-content: center; /* Центрируем по вертикали */
-            align-items: center; /* Центрируем по горизонтали */
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
         }
 
@@ -45,6 +45,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            overflow: hidden;
         }
 
         .left h1 {
@@ -54,7 +55,7 @@
 
         textarea {
             width: 100%;
-            height: calc(100% - 200px); /* Оставляем место для заголовка */
+            height: calc(100% - 200px);
             font-size: 18px;
             padding: 10px;
             box-sizing: border-box;
@@ -66,8 +67,11 @@
 
         .container {
             position: relative;
+            min-height: 300px;
             width: 300px;
-            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрируем первый элемент .grid по горизонтали */
         }
 
         .grid {
@@ -75,8 +79,26 @@
             grid-template-columns: repeat(6, 1fr);
             grid-template-rows: repeat(6, 1fr);
             width: 100%;
-            height: 100%;
-            position: relative;
+            height: 300px; /* Высота сетки */
+            transition: transform 0.5s ease;
+        }
+
+        .grid-0 {
+            /* Оставляем центральным элементом */
+        }
+
+        .grid-1 {
+            position: absolute;
+            top: 350px; /* Устанавливаем позицию ниже первого элемента на расстояние чуть больше его высоты */
+            left: 0;
+            width: 100%;
+        }
+
+        .grid-2 {
+            position: absolute;
+            top: 700px; /* Устанавливаем позицию ниже первого элемента на расстояние чуть больше его высоты */
+            left: 0;
+            width: 100%;
         }
 
         .cell {
@@ -98,26 +120,18 @@
             grid-template-columns: repeat(6, 1fr);
             grid-template-rows: repeat(6, 1fr);
             transition: transform 0.5s ease;
+            z-index: 100;
         }
 
         .square {
-            /*background-color: grey;*/
             background-image: url('images/cardboard.jpeg');
             background-size: cover;
-
         }
 
         .hole {
             background-image: none;
             background-color: transparent;
         }
-
-        /*.buttons {*/
-        /*    position: absolute;*/
-        /*    bottom: 100px;*/
-        /*    display: flex;*/
-        /*    gap: 10px;*/
-        /*}*/
 
         .buttons {
             margin-top: 30px;
@@ -136,33 +150,33 @@
 
 <div class="aligner">
     <div class="left">
-        <h1>Папино письмо</h1>
-        <textarea id="textInput">Когда я был ребенком отец писал мне письма.</textarea>
+        <h1>Father's letter</h1>
+        <textarea id="textInput">Привет</textarea>
         <div class="buttons">
             <button id="shuffleButton">Shuffle</button>
             <button id="rotateButton">Rotate</button>
             <button id="toggleButton">Toggle</button>
         </div>
-
     </div>
 
     <div class="right">
         <div class="container">
-            <!-- Сетка с ячейками -->
-            <div class="grid">
+            <!-- Первая сетка по центру -->
+            <div class="grid grid-0">
                 <!-- Ячейки 6x6 -->
             </div>
 
-            <!-- Сетка с отверстиями -->
+            <!-- Сетка с отверстиями (если нужно) -->
             <div class="grille">
                 <!-- Ячейки для отверстий -->
             </div>
         </div>
-
     </div>
 </div>
 
 <script src="./javascript.js"></script>
 <script src="./keyboard-controls.js"></script>
+<script src="./text-input.js"></script>
+
 </body>
 </html>
