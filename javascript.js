@@ -154,8 +154,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function createEmptyGrid() {
         const grid = document.createElement('div');
         grid.classList.add('grid', `grid-${gridCount}`);
+
+        //todo здесь нужно пофиксить динамически чтобы вычислять высоту грида и маржин
         grid.style.top = (350 * gridCount) + 'px';
         grid.style.position = 'absolute';
+
         container.appendChild(grid);
 
         // Добавляем пустые ячейки по матрице порядка

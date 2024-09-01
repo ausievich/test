@@ -51,6 +51,7 @@
         .left h1 {
             margin-top: 30px;
             margin-bottom: 50px;
+            letter-spacing: 5px;
         }
 
         textarea {
@@ -144,14 +145,39 @@
             font-size: 16px;
             cursor: pointer;
         }
+
+
+        /* Медиа-запрос для мобильных устройств */
+        @media (max-width: 768px) {
+            .aligner {
+                flex-direction: column; /* Переключаем контейнеры на вертикальное расположение */
+                align-items: center;
+            }
+
+            .left, .right {
+                width: 100%; /* Устанавливаем контейнеры на всю ширину экрана */
+                padding: 20px;
+            }
+
+            .left h1,
+            .buttons {
+                width: 100%;
+            }
+
+            button {
+                width: calc(100% - 20px); /* Кнопки занимают всю ширину */
+            }
+        }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
 <div class="aligner">
     <div class="left">
         <h1>Secret letter</h1>
-        <textarea id="textInput">Привет</textarea>
+        <textarea id="textInput"></textarea>
         <div class="buttons">
             <button id="shuffleButton">Shuffle</button>
             <button id="rotateButton">Rotate</button>
