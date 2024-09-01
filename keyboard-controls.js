@@ -21,7 +21,7 @@ document.addEventListener('keydown', (event) => {
 
 document.addEventListener("DOMContentLoaded", function () {
     const textarea = document.getElementById("textInput");
-    const text = "Когда я был ребенком, отец писал мне письма."; // Ваш заготовленный текст
+    const text = "Hello"; // Ваш заготовленный текст
     let index = 0;
 
     function typeText() {
