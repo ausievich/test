@@ -138,7 +138,7 @@ document.getElementById('rotateButton').addEventListener('click', () => {
 // Событие для кнопки Toggle
 document.getElementById('toggleButton').addEventListener('click', () => {
     const grille = document.querySelector('.grille');
-    grille.style.display = grille.style.display === 'none' ? 'grid' : 'none';
+    grille.style.display = grille.style.display === 'grid' ? 'none' : 'grid';
 });
 
 
@@ -148,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentGrid = document.querySelector('.grid-0');
     let gridCount = 1;
     let currentPosition = 0; // Текущая позиция для смещения
+    let previousTextLength = 0;
 
 
     // Функция для создания пустого .grid с ячейками
@@ -178,17 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Обработчик события ввода
     textInput.addEventListener('input', () => {
         const text = textInput.value.replace(/\s+/g, '');
-
-        if (text.length > 1 && text.length % 9 === 1) {
-            rotationAngle = (rotationAngle + 90);
-            rotateGrilleElement();
-
-        }
-
-        if (text.length === 0) {
-            rotationAngle = 0;
-            rotateGrilleElement();
-        }
+        const textLength = text.length; // Текущая длина текста
 
         // Сохраняем текущие трансформации всех .grid элементов
         const transforms = Array.from(container.querySelectorAll('.grid')).map(grid => grid.style.transform);
@@ -216,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Если текст не поместился в текущую сетку, создаем новую
             if (textIndex < text.length) {
                 currentGrid = createEmptyGrid();
+
             }
         }
 
@@ -225,6 +217,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 grid.style.transform = transforms[index];
             }
         });
+
+        // Логика автоматического смещения блоков по вертикали
+        const gridElements = document.querySelectorAll('.grid');
+        const gridHeight = gridElements[0]?.offsetHeight + 50 || 0; // margin = 50
+
+        // Определяем направление смещения
+        if (textLength > previousTextLength && currentPosition < gridElements.length - 1) {
+            // Если текст добавляется и мы не на последней позиции
+            currentPosition += 1;
+        } else if (textLength < previousTextLength && currentPosition > gridElements.length - 1) {
+            // Если текст удаляется и мы не на первой позиции
+            currentPosition -= 1;
+        }
+
+        // Смещаем все элементы .grid в зависимости от текущей позиции
+        gridElements.forEach(el => {
+            el.style.transform = `translateY(-${gridHeight * currentPosition}px)`;
+        });
+
+        // Обновляем предыдущее количество символов
+        previousTextLength = textLength;
+
+
     });
 
     // Логика смещения блоков по вертикали
@@ -249,3 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+
+
