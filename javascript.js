@@ -138,7 +138,7 @@ document.getElementById('rotateButton').addEventListener('click', () => {
 // Событие для кнопки Toggle
 document.getElementById('toggleButton').addEventListener('click', () => {
     const grille = document.querySelector('.grille');
-    grille.style.display = grille.style.display === 'grid' ? 'none' : 'grid';
+    grille.style.display = grille.style.display === 'none' ? 'grid' : 'none';
 });
 
 
